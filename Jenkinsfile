@@ -20,10 +20,8 @@ pipeline {
         stage('deploy') {
             steps {
                 script {
-                    def dockerCmd ='docker run -p 3080:3000 -d harikrishnan20010616/react-nodejs-example:1.0'
-                    sshagent(['ec2-server-key']) {
-                     sh "ssh -o StrictHostKeyChecking=no ec2-user@13.48.192.247 ${dockerCmd}"
-                   }
+                    'sh docker run -p 3080:3000 -d harikrishnan20010616/react-nodejs-example:1.0'
+                 
                 }
             }
         }
