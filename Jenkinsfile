@@ -48,7 +48,7 @@ pipeline {
                 echo 'deploying docker image to EC2'
                 def dockerComposeCmd = "docker-compose -f docker-compose.yaml up --detach"
                     sshagent(['ec2-server-key']) {
-                        sh "cp docker-compose.yaml ec2-user@13.61.176.81:/home/ec2-user"
+                        sh "cp docker-compose.yaml /home/ec2-user/"
                         sh "ssh -o StrictHostKeyChecking=no ec2-user@13.61.176.81 ${dockerComposeCmd}"
                     }
                 }
