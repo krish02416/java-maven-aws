@@ -13,7 +13,7 @@ pipeline {
     agent any
 
     tools {
-        maven 'maven-3.9'
+        maven 'Maven'
     }
 
     environment {
@@ -47,10 +47,7 @@ pipeline {
                 script {
                 echo 'deploying docker image to EC2'
                 def dockerComposeCmd = "docker-compose -f docker-compose.yaml up --detach"
-                    sshagent(['ec2-server-key']) {
-                        sh "cp docker-compose.yaml /home/ec2-user/"
-                        sh "${dockerComposeCmd}"
-                    }
+                sh "${dockerComposeCmd}"
                 }
             }
         }
