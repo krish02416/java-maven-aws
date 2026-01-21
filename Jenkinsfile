@@ -46,7 +46,7 @@ pipeline {
             steps {
                 script {
                 echo 'deploying docker image to EC2'
-                sh 'docker-compose -f docker-compose.yaml up --detach'
+                sh 'docker-compose -f docker-compose.yaml up -d'
                 }
             }
         }
