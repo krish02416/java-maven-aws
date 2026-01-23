@@ -45,8 +45,8 @@ pipeline {
         stage('Deploy') {
             steps {
                 script {
-                echo 'deploying docker image to EC2'
-                   sh 'bash ./server-cmds.sh'
+                   echo 'deploying docker image to EC2'
+                   sh "bash ./server-cmds.sh ${IMAGE_NAME}"
                 }
 
             }
